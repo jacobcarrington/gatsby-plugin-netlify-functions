@@ -51,7 +51,7 @@ exports.onPreInit = (o, { functionsSrc, functionsOutput }) => {
     o.reporter.panic(
       'You need to set `functionSrc` option to gatsby-plugin-netlify-functions with an existing folder'
     );
-  if (!fs.existsSync(functionsOutput)) fs.mkdirSync(functionsOutput);
+  if (!fs.existsSync(functionsOutput)) fs.mkdirSync(functionsOutput,{recursive: true}, err => {console.error(err)});
 };
 
 exports.onCreateDevServer = (
